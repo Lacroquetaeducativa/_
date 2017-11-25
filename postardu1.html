@@ -73,12 +73,12 @@
           <hr>
 
           <!-- Date/Time -->
-          <p>Publicado en  Noviembre 23, 2017 at 12:00 PM</p>
+  <p>Publicado en  Noviembre 23, 2017 at 12:00 PM</p>
 
           <hr>
 
           <!-- Preview Image -->
-          <img class="img-fluid rounded" src="https://store-cdn.arduino.cc/uni/catalog/product/cache/1/image/520x330/604a3538c15e081937dbfbd20aa60aad/A/0/A000066_featured_2.jpg" alt="">
+  <img class="img-fluid rounded" src="https://store-cdn.arduino.cc/uni/catalog/product/cache/1/image/520x330/604a3538c15e081937dbfbd20aa60aad/A/0/A000066_featured_2.jpg" alt="">
 
           <hr>
 
@@ -90,7 +90,7 @@
 <li>Placa Arduino</li>
 <li>Una Protoboard</li>
 <li>Un diodo LED</li>
-<li>Una resistencia de 330 Ohmios</li>
+<li>Una resistencia de 220 Ohmios</li>
 <li>Cables</li>
 <li>Un ordenador</li>
 <li>Ganas de aprender</li>
@@ -112,67 +112,65 @@
 <li>Resistencia al flujo / Resistencia eléctrica.</li>
 <li>Capacidad de una reserva de agua / Capacidad de un condensador.</li>
 </ol>
+<p>La idea es que la corriente eléctrica fluye del positivo al negativo porque hay una diferencia de tensión (que medimos en Voltios de símbolo V)  pero esto no es una medida absoluta sino la diferencia que hay entre los puntos en que lo medimos.</p>
+
+
 
           <blockquote class="blockquote">
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in
-              <cite title="Source Title">Source Title</cite>
-            </footer>
-          </blockquote>
+            <p class="mb-0"><h5>Ley de Ohm</h5></p>
+            <footer class="blockquote-footer">La Ley de Ohm reune todos los conceptos mencionados anteriormente.          </blockquote>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+  <p><strong>V=R X I</strong></p>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+          <p>Donde <strong>V </strong>es la tensión en voltios,<strong> R</strong> la resistencia e <strong>I</strong> la intensidad de corriente en Amperios.</p>
+<p>La tensión normal en Arduino es siempre de 5V o en otros casos de 3.3V.</p>
+<p>Interpretando la fórmula anterior, si la resistencia es nula, la intensidad se dispara  y puede fundir cualquier cable, o componente. Esto es lo que se denomina <strong>cortocircuito</strong> y debe de ser evitado ya que puede romper la placa. </p>
+<h5>Nuestro circuito</h5>
+<p>En este circuito hemos conectado e LED al pin 13, quedando el esquema de la siguiente forma:</p>
+<img src="images/esquemático1tutorial.png" width="600" height="480" alt=""/>
+<hr>
+<p>El símbolo de la izquierda corresponde con el diodo LED que emite luz(de ahí las flechitas), y el símbolo zigzagueante corresponde con la resistencia. Las letras GND indica que es el negativo, denominado masa, o tierra.</p>
+<p>Un diodo, es un componente que solo permite el paso de la corriente en una dirección, en concreto, del positivo al negativo. En un diodo LED, el positivo corresponde con la pata de mayor longitud.</p>
+          <img src="images/esquemático1tutorialrelieve.png" width="600" height="514" alt=""/>
+          
+   <h5>Estructura de un programa Arduino</h5>  
+   <p>Un Sketch de Arduino consiste en dos secciones básicas:</p>   
+ <ul>
+ <li><p><strong>Setup</strong>: Instrucciones que se ejecutan solo una vez al arrancar el programa o encender la placa. Incluye "ajustes" o definiciones.</p></li>
+ <li><p><strong>Loop</strong>: Son las instrucciones que se repiten en secuencia una y otra vez sin fin.</p></li>
+ </ul> 
+ <p>Al iniciar el entorno de Arduino ( IDE) y pulsar en Menú-->Archivo-->Nuevo, se nos genera automáticamente las dos funciones.</p>
+ <p>Cualquier cosa que se escriba detras de "//" será una anotación en el código, por lo que el compilador lo ignorará.</p>
+ 
+ 
+    <h5>Primeras instruccioes  en Arduino</h5>  
+    <p>El primer programa que vamos a escribir es el blinking LED, que consiste en el parpadeo de un LED.</p>
+<p>Arduino se relaciona de diferentes maneras con el mundo que le rodea. Comezaremos por los pines digitales:</p>
+<ul>
+<li><strong>Entradas</strong>: Leen información digital del mundo exterior.</li>
+<li><strong>Salidas</strong>: Activan señales en el mundo exterior.</li>
+</ul>
+<img src="images/PlacaArduino.png" width="700" height="560" alt=""/>
+<p>Arduino dispone de 14 pines, numerados del 0 al 13.</p>
+<p>Indicamos al sistema que usamos el pin 13 como salida usamos la siguiente instrucción:</p>
+<p> pinMode(13,OUTPUT);</p>
+<p>El primer parámetro indica el pin a usar y el "OUTPUT" indica que se va a usar como salida, y en caso de leer un dato, se usaría "INPUT". Todo estas definiciones van dentro de la función setup().</p>
 
-          <hr>
+<p>Para encender el LED usamos la instrucción digitalWrtite(13, HIGH) y para apagarlo la instrucción similar pero ordenando apagarlo digitalWritw(13, LOW). Indicando el pin a usar y el valor HIGH( 5V) Y LOW (0V).</p>
+<p>Si escribiéramos todo esto en la función loop(), Arduino ejecutaría los cambios tan rápido que no veríamos el led parpadear, es por esto por lo que usaremos la funcion delay(1000), para hacer un retraso de un segundo.</p>
 
-          <!-- Comments Form -->
-          <div class="card my-4">
-            <h5 class="card-header">Leave a Comment:</h5>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
-          </div>
+<h5> Resultado final</h5>
+<img src="images/blinkcode.JPG" width="1000" height="635" alt=""/> 
+<a href="videos/ledblink.mp4" download>Aquí puede ver la ejecución del código</a>
+<p></p>
+<a href="archivos/blink.ino" download>Pulse para descargar el código del programa Blink </a>
 
-          <!-- Single Comment -->
-          <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
+
+<!-- Single Comment -->
+          
 
           <!-- Comment with nested comments -->
-          <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-            <div class="media-body">
-              <h5 class="mt-0">Commenter Name</h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-              <div class="media mt-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                  <h5 class="mt-0">Commenter Name</h5>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-              </div>
-
-              <div class="media mt-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                  <h5 class="mt-0">Commenter Name</h5>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-              </div>
-
-            </div>
-          </div>
+          
 
         </div>
 
@@ -195,48 +193,33 @@
 
           <!-- Categories Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
+            <h5 class="card-header">Categorias</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">Web Design</a>
+                      <a href="#">Arduino</a>
                     </li>
                     <li>
-                      <a href="#">HTML</a>
+                      <a href="#">FreeCad</a>
                     </li>
                     <li>
-                      <a href="#">Freebies</a>
+                      <a href="#">Electrónica</a>
                     </li>
                   </ul>
                 </div>
                 <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">JavaScript</a>
-                    </li>
-                    <li>
-                      <a href="#">CSS</a>
-                    </li>
-                    <li>
-                      <a href="#">Tutorials</a>
-                    </li>
-                  </ul>
+                 
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Side Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
-            <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-            </div>
-          </div>
+          
 
-        </div>
+  </div>
 
       </div>
       <!-- /.row -->
@@ -263,8 +246,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 
