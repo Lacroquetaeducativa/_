@@ -159,50 +159,7 @@ analogWrite(LED_ROJO, 0); // Color rojo ON
 analogWrite(LED_VERDE, 0); // Color verde ON
 </p>
 <p>Combinamos los colores de la forma que se aprecía en el esquema, para así crear distintos colores.</p>
-<p>const int LED_ROJO = 6;  // Pin al que está conectado el color rojo
-const int LED_VERDE = 5; // Pin al que está conectado el color verde
-const int LED_AZUL = 3;  // Pin al que está conectado el color azul
-
-void setup() {
-  // Inicializamos los LEDs
-  pinMode(LED_ROJO, OUTPUT);
-  pinMode(LED_VERDE, OUTPUT);
-  pinMode(LED_AZUL, OUTPUT);
-}
-
-void loop() {
-  analogWrite(LED_ROJO, 0);    // Color rojo ON
-  delay(1000);
-  analogWrite(LED_ROJO, 255);  // Color rojo OFF
-  
-  analogWrite(LED_VERDE, 0);   // Color verde ON
-  delay(1000);
-  analogWrite(LED_VERDE, 255); // Color verde OFF
-  
-  analogWrite(LED_AZUL, 0);    // Color azul ON
-  delay(1000);
-  analogWrite(LED_AZUL, 255);  // Color azul OFF
-  
-  // Encendemos el rojo y el verde
-  analogWrite(LED_ROJO, 0);   // Color rojo ON
-  analogWrite(LED_VERDE, 0);  // Color verde ON
-  delay(1000);
-  
-  // Apagamos el rojo, mantenemos encendido el verde y encendemos el azul
-  analogWrite(LED_ROJO, 255);  // Color rojo OFF
-  analogWrite(LED_AZUL, 0);    // Color azul ON
-  delay(1000);
-  
-  // Apagamos el verde, mantenemos el azul y encendemos el rojo
-  analogWrite(LED_VERDE, 255); // Color verde OFF
-  analogWrite(LED_ROJO, 0);    // Color rojo ON
-  delay(1000);
-
-  // Apagamos todos para volver a empezar
-   analogWrite(LED_ROJO, 255);
-   analogWrite(LED_VERDE, 255);
-   analogWrite(LED_AZUL, 255);  
-}</p>
+<script src="https://gist.github.com/eloisaromero/895a25fb1c427409e7073dd66b3ac3b6.js"></script>
 
 <a href="https://fabricadigital.org/leccion/como-usar-un-led-rgb-con-arduino/archivos/ldr.ino" download>Pulse para ir a la página de la que hemos obtenido la información para este tutorial </a>
 
