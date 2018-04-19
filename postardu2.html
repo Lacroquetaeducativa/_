@@ -46,6 +46,14 @@
 
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contacto</a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="anteindex.html">Anteproyecto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="proindex.html">Proyecto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Resultados de la investigación.html">Resultados</a>
             </li>
           </ul>
         </div>
@@ -62,106 +70,85 @@
 
           <!-- Title -->
           &nbsp
-          <h1 class="mt-4">Usando un LED RGB	</h1>
+          <h1 class="mt-4">Segundo programa en Arduino- Usando un LDR</h1>
 
           <!-- Author -->
           <p class="lead">
             by
-Vanesa Hidalgo          </p>
+           Carolina Aranda
+          </p>
 
           <hr>
 
           <!-- Date/Time -->
-  <p>Publicado en  Noviembre 30, 2017 at 12:00 PM</p>
+  <p>Publicado en  Noviembre 27, 2017 at 8:00 PM</p>
 
           <hr>
 
           <!-- Preview Image -->
-  <img class="img-fluid rounded" src="images/rgbled.png" alt="">
+  <img class="img-fluid rounded" src="images/ldr_.png" alt="">
 
           <hr>
 
           <!-- Post Content -->
-          <p class="lead">En este tutorial aprenderemos a  crear colores con un LED RGB.</p>
+          <p class="lead">En este tutorial aprenderemos a montar un circuito básico con un LDR y un LED.</p>
           
           <h5>El material necesario es...</h5>
 <ul>
 <li>Placa Arduino</li>
 <li>Una Protoboard</li>
-<li>Un LED RGB</li>
-<li>Una resistencia de 220 Ohmios</li>
+<li>Un diodo LED</li>
+<li>Un LDR</li>
+
+<li>Dos resistencia de 220 Ohmios</li>
 <li>Cables</li>
 <li>Un ordenador</li>
 <li>Ganas de aprender</li>
 </ul>
 
-          <h5>¿Qué es un LED RGB?</h5>
+          <h5>¿Qué es un LDR?</h5>
 
 
-          <p>Es un LED  formado  por 3 LEDs de 3 colores distintos, Red/Green/Blue o Rojo/Verde/Azul. ¡Controlando la intensidad de cada uno de ellos podemos mezclar los colores!
+          <p>Una fotorresistencia o LDR (Light Depending Resistor) es un componente cuya resistencia varía en función de la luz que incide sobre él.
 
 </p>
 
-          <p>Se suele usar en arte y en múltiples objetos para crear colores..</p>
-          <p>Las pantallas son grandes matrices de LEDS RGB.
+          <p>Se suele usar en sensores de luz o detectores de movimiento.</p>
+          <p>Arduino no puede leer directamente la resistencia, sino la tensión. Cabe decir que los LDR no son rápidos en reaccionar a la luz.
 </p>
 
 
 
 
         
-            <p class="mb-0"><h5>Conexión en la protoboard</h5></p>
+            <p class="mb-0"><h5>Divisor de tensión</h5></p>
             
-  <p>Como para mezclar los colores tenemos que jugar con la intensidad de cada uno de los LEDs que componen nuestro LED RGB, vamos a usar las salidas “analógicas” que tiene Arduino, mejor llamadas PWM. Esto es, tenemos que usar los pines digitales que tienen una marca (~) justo al lado del número. En Genuino UNO estos pines son el 3, 5, 6, 9, 10 y 11.</p>
+  <p>Para poder hacer un circuito en el que la luz se encienda con cierto umbral de oscuridad, debemos conocer primero el funcionamiento de un divisor de tensión.</p>
 
-        
-<img src="images/rgb_conexiones.png" width="600" height="480" alt=""/>
+          <p>Un divisor de tensión (sin entrar en cálculos  ni fórmulas) es un circuito de lo más práctico. Se usa habitualmente para rebajar una señal de entrada.</p>
+          <p>Son circuitos sencillos y resuelven muchos problemas de resistencias a la hora de usar potenciómetros, o cuando tratamos señales.</p>
+<img src="images/ldr-led.png" width="600" height="480" alt=""/>
 <hr>
-
+<p>R1 Y R2 forman un divisor de tensión, dependiendo la lectura de A0 de la luz que incida en el LDR.</p>
 
           
    <h5>Código Arduino</h5>  
+   <p>En este programa usaremos las estructuras condicionales de selección.</p>   
  
- <p>Podemos controlar la intesidad de cada uno de los colores (rojo, verde y azul) por separado, añadiendo las cantidades de color que necesitemos de cada uno de ellos para conseguir el color que estemos buscando.</p>
- <p>const int LED_ROJO = 6;  // Pin al que está conectado el color rojo
-const int LED_VERDE = 5; // Pin al que está conectado el color verde
-const int LED_AZUL = 6;  // Pin al que está conectado el color azul
-
-void setup() {
-  // Inicializamos los LEDs
-  pinMode(LED_ROJO, OUTPUT);
-  pinMode(LED_VERDE, OUTPUT);
-  pinMode(LED_AZUL, OUTPUT);
-}
-
-void loop() {
-  analogWrite(LED_ROJO, 0);    // Color rojo ON
-  delay(1000);
-  analogWrite(LED_ROJO, 255);  // Color rojo OFF
-  analogWrite(LED_VERDE, 0);   // Color verde ON
-  delay(1000);
-  analogWrite(LED_VERDE, 255);  //Color verde OFF
-  analogWrite(LED_AZUL, 0);    // Color azul ON
-  delay(1000);
-  analogWrite(LED_AZUL, 255);  // Color azul OFF
-}</p>
+ <p>El código tiene la siguiente forma: if(CASO A){ACCION A}else{ACCION B}</p>
+ <p>En el caso de que la condición CASO A se cumpla se realizará la acción a, en caso contrario la acción b.</p>
  
+    <p>Para leer el valor del divisor de tensión usamos la función analogRead(PIN).</p>
+
+
+<img src="images/esquematico2.png" width="" height="400" alt="400"/>
 
 
 
+<h5> Resultado final</h5>
+<img src="images/codigo2.png" width="" height="" alt=""/> 
 
-
-
-<h5>Teoría del color</h5>
-<img src="images/teoriacolor.jpg" width="400" height="" alt=""/> 
-<p>Para mostrar el color amarillo, debemos de encender tanto el LED rojo como el verde:
-analogWrite(LED_ROJO, 0); // Color rojo ON
-analogWrite(LED_VERDE, 0); // Color verde ON
-</p>
-<p>Combinamos los colores de la forma que se aprecía en el esquema, para así crear distintos colores.</p>
-<script src="https://gist.github.com/eloisaromero/895a25fb1c427409e7073dd66b3ac3b6.js"></script>
-
-<a href="https://fabricadigital.org/leccion/como-usar-un-led-rgb-con-arduino/archivos/ldr.ino" download>Pulse para ir a la página de la que hemos obtenido la información para este tutorial </a>
+<a href="archivos/ldr.ino" download>Pulse para descargar el código del programa  </a>
 
 
 <!-- Single Comment -->
